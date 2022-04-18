@@ -15,7 +15,7 @@
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-   
+<link id="pagestyle" href="admin/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />  
 
     <!-- Styles
     <link href="{{ asset('\fronted\css\vendor\bootstrap.min.css') }}" rel="stylesheet">
@@ -28,18 +28,30 @@
     <link href="{{ asset('\fronted\css\plugins\jquery-ui.min.css') }}" rel="stylesheet">
     <link href="{{ asset('\fronted\css\plugins\plugins.min.css') }}" rel="stylesheet">
     <link href="{{ asset('\fronted\css\style.css') }}" rel="stylesheet">
-    <link href="{{ asset('\fronted\css\style.min.css') }}" rel="stylesheet">  -->
+      -->
 
-    <link href="{{ asset('/fronted/css/bootstrap5.min.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('/admin/css/material-dashboard.css') }}" rel="stylesheet">
     
     
 </head>
-<body>
-
+<body class="g-sidenav-show  bg-gray-200">
+   @include('layouts.inc.sidebar')
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        @include('layouts.inc.adminnav')
+        <div class="content">
+         @yield('content')
+        </div>
+    
+         @include('layouts.inc.adminfooter')
+    </main>
     <!-- Scripts -->
         <!-- Vendors JS -->
-
-        <script src= {{ asset ('fronted/js/bootstrap.bundle.min.js') }} defer></script>
-        
+ <!--   Core JS Files   -->
+        <script src= {{ asset ('admin/js/core/popper.min.js') }} defer></script>
+        <script src= {{ asset ('admin/js/plugins/perfect-scrollbar.min.js') }} defer></script>
+        <script src= {{ asset ('admin/js/plugins/smooth-scrollbar.min.js') }} defer></script>
+        <script src= {{ asset ('admin/js/plugins/chartjs.min.js') }} defer></script>
+        @yield('script')
 </body>
 </html>
